@@ -22,6 +22,7 @@ export default function VerBuracos(){
           idDispositivo: string;
           latitude: number;
           longitude: number;
+          status : string;
         }[]
       >([]);
 const mapRef = useRef<MapView>(null);
@@ -60,13 +61,15 @@ useFocusEffect(
     fetch('https://projeto-vias-sjrv.vercel.app/RETORNARTODOSBURACOS')
       .then(response => response.json())
       .then(data => {
-        setMarkers(data);
+        const buracosAbertos = data.filter((item: any) => item.status == "Aberto");
+        setMarkers(buracosAbertos);
       })
       .catch(error => {
         console.error('Erro ao buscar buracos:', error);
       });
   }, [])
 );
+
 
     return(
         <>

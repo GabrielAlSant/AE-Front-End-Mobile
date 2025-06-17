@@ -76,7 +76,7 @@ export default function CurrentLocationPage({ onSelecionarLocalizacao }: Props) 
 
   return (
     <View style={{ flex: 1 }}>
-      <Maps markers={markers} location={location} mapRef={mapRef} styles={styles}/>
+      <Maps markers={[]} location={location} mapRef={mapRef} styles={styles}/>
       <Button title="Confirmar Localização" onPress={confirmarLocalizacao} />
     </View>
   );

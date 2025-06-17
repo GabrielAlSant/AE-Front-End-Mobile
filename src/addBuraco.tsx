@@ -75,18 +75,17 @@ export default function ReportarProblema() {
     text2: 'Seu reporte também é importante. Muito obrigado!',
     position: 'bottom',
     visibilityTime: 4000,
-  });
-      }
-
-      if (!resposta.ok) throw new Error('Erro ao enviar buraco');
-
-      if(resposta.ok) { 
+  })}else{
     Toast.show({
     type: 'success',
     text1: 'Registramos seu reporte! Muito Obrigado!',
     position: 'bottom',
     visibilityTime: 4000,
-  }); }
+  })
+  }
+
+      if (!resposta.ok) throw new Error('Erro ao enviar buraco');
+
       const respostaJson = await resposta.json();
       setMarkers([]);
       setDescricao('');
@@ -172,7 +171,6 @@ export default function ReportarProblema() {
   );
 }
 
-// 🎨 Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
