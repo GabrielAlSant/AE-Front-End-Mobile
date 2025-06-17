@@ -34,7 +34,6 @@ export default function CurrentLocationPage({ onSelecionarLocalizacao }: Props) 
     requestPermission();
   }, []);
 
-  // Atualiza a câmera do mapa conforme a posição se move
   useEffect(() => {
     watchPositionAsync(
       {
